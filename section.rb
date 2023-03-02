@@ -1,20 +1,10 @@
 $LOAD_PATH << '.'
-require 'file_link'
-require 'csv'
+require 'iodata'
 
 class Section
-include File_link
   def show_employee_details
-    csv = File_link.get_file_name
-    count = 0
-    puts self.class.name
-    csv.each do |row| 
-      if self.class.name == row[2]
-        puts "#{row[0]} #{row[1]} #{row[2]}"
-        count += 1
-      end
-    end
-    puts count
+    data = IOData.new
+    data.show_dept_empl_data
 end
 end
 
